@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		02C06D5E1F8C4F4B00B51E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D5D1F8C4F4B00B51E0C /* AppDelegate.swift */; };
-		02C06D601F8C4F4B00B51E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D5F1F8C4F4B00B51E0C /* ViewController.swift */; };
 		02C06D631F8C4F4B00B51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C06D611F8C4F4B00B51E0C /* Main.storyboard */; };
 		02C06D661F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D641F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld */; };
-		02C06D681F8C4F4B00B51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C06D671F8C4F4B00B51E0C /* Assets.xcassets */; };
 		02C06D6B1F8C4F4B00B51E0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C06D691F8C4F4B00B51E0C /* LaunchScreen.storyboard */; };
+		02C06D761F8C507800B51E0C /* CarrinhoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D731F8C507700B51E0C /* CarrinhoTableViewController.swift */; };
+		02C06D771F8C507800B51E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D741F8C507700B51E0C /* ViewController.swift */; };
+		02C06D781F8C507800B51E0C /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D751F8C507800B51E0C /* CadastroViewController.swift */; };
+		02C06D7A1F8C529800B51E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C06D791F8C529800B51E0C /* Assets.xcassets */; };
+		02C06D7C1F8C573300B51E0C /* AjustesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D7B1F8C573300B51E0C /* AjustesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02C06D5A1F8C4F4B00B51E0C /* CamilaValter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamilaValter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C06D5D1F8C4F4B00B51E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		02C06D5F1F8C4F4B00B51E0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02C06D621F8C4F4B00B51E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02C06D651F8C4F4B00B51E0C /* CamilaValter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CamilaValter.xcdatamodel; sourceTree = "<group>"; };
-		02C06D671F8C4F4B00B51E0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02C06D6A1F8C4F4B00B51E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02C06D6C1F8C4F4B00B51E0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C06D731F8C507700B51E0C /* CarrinhoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrinhoTableViewController.swift; sourceTree = "<group>"; };
+		02C06D741F8C507700B51E0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../Minha Lista/CamilaValter/Controller/ViewController.swift"; sourceTree = "<group>"; };
+		02C06D751F8C507800B51E0C /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		02C06D791F8C529800B51E0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		02C06D7B1F8C573300B51E0C /* AjustesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				02C06D5D1F8C4F4B00B51E0C /* AppDelegate.swift */,
-				02C06D5F1F8C4F4B00B51E0C /* ViewController.swift */,
+				02C06D751F8C507800B51E0C /* CadastroViewController.swift */,
+				02C06D741F8C507700B51E0C /* ViewController.swift */,
+				02C06D7B1F8C573300B51E0C /* AjustesViewController.swift */,
+				02C06D731F8C507700B51E0C /* CarrinhoTableViewController.swift */,
+				02C06D791F8C529800B51E0C /* Assets.xcassets */,
 				02C06D611F8C4F4B00B51E0C /* Main.storyboard */,
-				02C06D671F8C4F4B00B51E0C /* Assets.xcassets */,
 				02C06D691F8C4F4B00B51E0C /* LaunchScreen.storyboard */,
 				02C06D6C1F8C4F4B00B51E0C /* Info.plist */,
 				02C06D641F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld */,
@@ -127,7 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C06D6B1F8C4F4B00B51E0C /* LaunchScreen.storyboard in Resources */,
-				02C06D681F8C4F4B00B51E0C /* Assets.xcassets in Resources */,
+				02C06D7A1F8C529800B51E0C /* Assets.xcassets in Resources */,
 				02C06D631F8C4F4B00B51E0C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C06D661F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld in Sources */,
-				02C06D601F8C4F4B00B51E0C /* ViewController.swift in Sources */,
+				02C06D761F8C507800B51E0C /* CarrinhoTableViewController.swift in Sources */,
+				02C06D771F8C507800B51E0C /* ViewController.swift in Sources */,
+				02C06D781F8C507800B51E0C /* CadastroViewController.swift in Sources */,
+				02C06D7C1F8C573300B51E0C /* AjustesViewController.swift in Sources */,
 				02C06D5E1F8C4F4B00B51E0C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +290,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XU35YZPYQ;
 				INFOPLIST_FILE = CamilaValter/Info.plist;
@@ -293,6 +306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XU35YZPYQ;
 				INFOPLIST_FILE = CamilaValter/Info.plist;
