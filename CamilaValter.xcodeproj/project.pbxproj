@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		021EB39E1F9D672900B3101A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 021EB39D1F9D672900B3101A /* Settings.bundle */; };
+		021EB3A01F9E9E2600B3101A /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021EB39F1F9E9E2600B3101A /* TotalViewController.swift */; };
 		02B7FA181F9D131000AEE17C /* EstadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7FA171F9D131000AEE17C /* EstadosViewController.swift */; };
 		02B7FA1A1F9D319E00AEE17C /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7FA191F9D319E00AEE17C /* UIViewController+CoreData.swift */; };
 		02B7FA1C1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7FA1B1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		021EB39D1F9D672900B3101A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		021EB39F1F9E9E2600B3101A /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 		02B7FA171F9D131000AEE17C /* EstadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstadosViewController.swift; sourceTree = "<group>"; };
 		02B7FA191F9D319E00AEE17C /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		02B7FA1B1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrinhoTableViewCell.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				02B7FA1B1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift */,
 				02C06D791F8C529800B51E0C /* Assets.xcassets */,
 				02C06D611F8C4F4B00B51E0C /* Main.storyboard */,
+				021EB39F1F9E9E2600B3101A /* TotalViewController.swift */,
 				02B7FA171F9D131000AEE17C /* EstadosViewController.swift */,
 				02C06D691F8C4F4B00B51E0C /* LaunchScreen.storyboard */,
 				02C06D6C1F8C4F4B00B51E0C /* Info.plist */,
@@ -164,6 +167,7 @@
 				02B7FA181F9D131000AEE17C /* EstadosViewController.swift in Sources */,
 				02C06D661F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld in Sources */,
 				02C06D761F8C507800B51E0C /* CarrinhoTableViewController.swift in Sources */,
+				021EB3A01F9E9E2600B3101A /* TotalViewController.swift in Sources */,
 				02B7FA1A1F9D319E00AEE17C /* UIViewController+CoreData.swift in Sources */,
 				02C06D771F8C507800B51E0C /* ViewController.swift in Sources */,
 				02C06D781F8C507800B51E0C /* CadastroViewController.swift in Sources */,

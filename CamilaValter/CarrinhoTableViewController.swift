@@ -61,11 +61,12 @@ class CarrinhoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CarrinhoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celula", for: indexPath) as! CarrinhoTableViewCell
         let prod = fetchedProdutosController.object(at: indexPath)
         cell.lbNomeProduto.text = prod.nome
         cell.lbValorDolar.text = "\(prod.valor)"
-        //cell.lbEstadoImposto.text = "+ \(prod.estado!.imposto)% (\(prod.estado!.nome!))"
+        
+        //cell.lbEstadoImposto.text = "+ \(imposto)% )"
         
         if prod.cartao == true {
             cell.lbCartaoIOF.text = "+ 6,38% (IOF)"
@@ -73,12 +74,16 @@ class CarrinhoTableViewController: UITableViewController {
             cell.lbCartaoIOF.text = "-"
         }
         
-        if let imagem = prod.imagem as? UIImage {
-            cell.ivPoster.image = imagem
-        } else {
-            cell.ivPoster.image = nil
+        DispatchQueue.global().async {
+            if let imagem = prod.imagem as! Data? {
+                let img = UIImage(data: imagem)
+                DispatchQueue.main.async {
+                    cell.ivPoster.image = img
+                }
+            } else {
+                cell.ivPoster.image = #imageLiteral(resourceName: "bag")
+            }
         }
-        
         
         return cell
     }
