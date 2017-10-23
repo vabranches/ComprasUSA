@@ -7,29 +7,54 @@
 //
 
 import UIKit
+import CoreData
 
 class AjustesViewController: UIViewController {
 
+    @IBOutlet weak var tvCotacao: UITextField!
+    @IBOutlet weak var tvImposto: UITextField!
+    
+    var defaults : UserDefaults!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        NotificationCenter.default.addObserver(self, selector: #selector(carregarConfiguracoes), name: UserDefaults.didChangeNotification, object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        carregarConfiguracoes()
     }
-    */
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        gravarConfiguracoes()
+    }
+
+    @objc func carregarConfiguracoes() {
+        defaults = UserDefaults.standard
+        
+        tvCotacao.text = defaults.string(forKey: "cotacao")
+        tvImposto.text = defaults.string(forKey: "iof")
+        
+    }
+    
+    func gravarConfiguracoes() {
+        defaults = UserDefaults.standard
+        
+        defaults.set(tvCotacao.text!, forKey: "cotacao")
+        defaults.set(tvImposto.text!, forKey: "iof")
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.becomeFirstResponder()
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+
 
 }

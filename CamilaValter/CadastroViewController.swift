@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CadastroViewController: UIViewController {
     
@@ -21,8 +22,9 @@ class CadastroViewController: UIViewController {
     var produto : Produtos!
     var smallImage: UIImage!
     var pickerView: UIPickerView!
-    var dadosPicker:[String] = ["Alberta", "BC",]
-    
+    var dadosPicker : [Estados] = [Estados]()
+    var imagePicker: UIImagePickerController!
+    var fetchedResultsController : NSFetchedResultsController<Estados>!
     
     
     override func viewDidLoad() {
@@ -33,10 +35,7 @@ class CadastroViewController: UIViewController {
             tvValorUS.text = "\(produto.valor)"
             swCartao.isSelected = produto.cartao
             btSubmeter.setTitle("Editar", for: .normal)
-            
-            if let estados = produto.estado{
-                tvUF.text = String(describing: estados.estado)
-            }
+            tvUF.isEnabled = false
             
             if let imagem = produto.imagem as? UIImage {
                 ivImagemProduto.image = imagem
@@ -46,6 +45,15 @@ class CadastroViewController: UIViewController {
         incluirPickerView()
         
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if produto != nil {
+            if let estados = produto.estado {
+                tvUF.text = estados.nome
+            }
+        }
     }
     
     //MARK: Metodos de UIResponder
@@ -60,11 +68,27 @@ class CadastroViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
     }
+    
+    //MARK: Carregar
+    func carregarEstados() {
+        let fetchRequest : NSFetchRequest<Estados> = Estados.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+            dadosPicker = fetchedResultsController.fetchedObjects!
+        } catch {}
+        
+    }
 
     //MARK: Actions
     @IBAction func addImagem(_ sender: UIButton) {
 
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Selecionar poster", message: "De onde você quer escolher o poster", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -89,6 +113,31 @@ class CadastroViewController: UIViewController {
     @IBAction func submeter(_ sender: UIButton) {
         if validarDados() == true {
             alerta(titulo: "Sucesso", mensagem: "Dados validados", botao: "OK")
+            
+            if produto == nil {
+                produto = Produtos(context: context)
+            }
+            
+            produto.nome = tvNomeProduto.text!
+            
+            //guard let valor : Double = Double(tvValorUS.text!) else { return }
+            
+            produto.valor = 2000.1
+            produto.cartao = swCartao.isSelected
+
+            if smallImage != nil {
+              produto.imagem = smallImage
+            }
+            
+            do {
+                try context.save()
+                
+                print("Nome: ",produto.nome ?? "")
+                print("Cartao: ",produto.cartao)
+                print("Estado: ", produto.estado?.nome ?? "")
+            } catch {}
+            
+            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -122,16 +171,11 @@ class CadastroViewController: UIViewController {
     }
     
     func selectPicture(sourceType: UIImagePickerControllerSourceType) {
-        //Criando o objeto UIImagePickerController
-        let imagePicker = UIImagePickerController()
-        
-        //Definimos seu sourceType através do parâmetro passado
+
+        imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
-        
-        //Definimos a MovieRegisterViewController como sendo a delegate do imagePicker
         imagePicker.delegate = self
-        
-        //Apresentamos a imagePicker ao usuário
+
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -149,6 +193,14 @@ class CadastroViewController: UIViewController {
         toolbar.items = [btCancel, btSpace, btDone]
         tvUF.inputView = pickerView
         tvUF.inputAccessoryView = toolbar
+        
+        let nomeEstado = dadosPicker.flatMap({ $0.nome})
+        if nomeEstado.contains(tvUF.text!) == false {
+            tvUF.text = ""
+        }
+        
+        carregarEstados()
+        
     }
     
     @objc func cancelar()  {
@@ -156,7 +208,7 @@ class CadastroViewController: UIViewController {
     }
     
     @objc func concluir()  {
-        tvUF.text = dadosPicker[pickerView.selectedRow(inComponent: 0)]
+        tvUF.text = dadosPicker[pickerView.selectedRow(inComponent: 0)].nome
         cancelar()
     }
     
@@ -170,25 +222,30 @@ extension CadastroViewController : UIPickerViewDataSource, UIPickerViewDelegate{
         return dadosPicker.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dadosPicker[row]
+        return dadosPicker[row].nome
     }
 }
 
 // MARK: UIImagePickerControllerDelegate
 extension CadastroViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String: AnyObject]?) {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        let smallImage = CGSize(width: 300, height: 280)
-        UIGraphicsBeginImageContext(smallImage)
-        image.draw(in: CGRect(x: 0, y: 0, width: smallImage.width, height: smallImage.height))
-        
-        self.smallImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        ivImagemProduto.image = self.smallImage
-        
+        ivImagemProduto.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        ivImagemProduto.contentMode = .scaleAspectFit
         dismiss(animated: true, completion: nil)
+    }
+
+
+}
+
+extension CadastroViewController : NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        if let fetchedEstados = fetchedResultsController.fetchedObjects{
+            dadosPicker = fetchedEstados
+            incluirPickerView()
+        }
     }
 }
 

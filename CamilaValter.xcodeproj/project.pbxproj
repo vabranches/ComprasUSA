@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021EB39E1F9D672900B3101A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 021EB39D1F9D672900B3101A /* Settings.bundle */; };
+		02B7FA181F9D131000AEE17C /* EstadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7FA171F9D131000AEE17C /* EstadosViewController.swift */; };
+		02B7FA1A1F9D319E00AEE17C /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7FA191F9D319E00AEE17C /* UIViewController+CoreData.swift */; };
+		02B7FA1C1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7FA1B1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift */; };
 		02C06D5E1F8C4F4B00B51E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D5D1F8C4F4B00B51E0C /* AppDelegate.swift */; };
 		02C06D631F8C4F4B00B51E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C06D611F8C4F4B00B51E0C /* Main.storyboard */; };
 		02C06D661F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02C06D641F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		021EB39D1F9D672900B3101A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		02B7FA171F9D131000AEE17C /* EstadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstadosViewController.swift; sourceTree = "<group>"; };
+		02B7FA191F9D319E00AEE17C /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
+		02B7FA1B1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrinhoTableViewCell.swift; sourceTree = "<group>"; };
 		02C06D5A1F8C4F4B00B51E0C /* CamilaValter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamilaValter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C06D5D1F8C4F4B00B51E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02C06D621F8C4F4B00B51E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,14 +72,18 @@
 			children = (
 				02C06D5D1F8C4F4B00B51E0C /* AppDelegate.swift */,
 				02C06D751F8C507800B51E0C /* CadastroViewController.swift */,
+				02B7FA191F9D319E00AEE17C /* UIViewController+CoreData.swift */,
 				02C06D741F8C507700B51E0C /* ViewController.swift */,
 				02C06D7B1F8C573300B51E0C /* AjustesViewController.swift */,
 				02C06D731F8C507700B51E0C /* CarrinhoTableViewController.swift */,
+				02B7FA1B1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift */,
 				02C06D791F8C529800B51E0C /* Assets.xcassets */,
 				02C06D611F8C4F4B00B51E0C /* Main.storyboard */,
+				02B7FA171F9D131000AEE17C /* EstadosViewController.swift */,
 				02C06D691F8C4F4B00B51E0C /* LaunchScreen.storyboard */,
 				02C06D6C1F8C4F4B00B51E0C /* Info.plist */,
 				02C06D641F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld */,
+				021EB39D1F9D672900B3101A /* Settings.bundle */,
 			);
 			path = CamilaValter;
 			sourceTree = "<group>";
@@ -135,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				021EB39E1F9D672900B3101A /* Settings.bundle in Resources */,
 				02C06D6B1F8C4F4B00B51E0C /* LaunchScreen.storyboard in Resources */,
 				02C06D7A1F8C529800B51E0C /* Assets.xcassets in Resources */,
 				02C06D631F8C4F4B00B51E0C /* Main.storyboard in Resources */,
@@ -148,10 +161,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B7FA181F9D131000AEE17C /* EstadosViewController.swift in Sources */,
 				02C06D661F8C4F4B00B51E0C /* CamilaValter.xcdatamodeld in Sources */,
 				02C06D761F8C507800B51E0C /* CarrinhoTableViewController.swift in Sources */,
+				02B7FA1A1F9D319E00AEE17C /* UIViewController+CoreData.swift in Sources */,
 				02C06D771F8C507800B51E0C /* ViewController.swift in Sources */,
 				02C06D781F8C507800B51E0C /* CadastroViewController.swift in Sources */,
+				02B7FA1C1F9D3B3A00AEE17C /* CarrinhoTableViewCell.swift in Sources */,
 				02C06D7C1F8C573300B51E0C /* AjustesViewController.swift in Sources */,
 				02C06D5E1F8C4F4B00B51E0C /* AppDelegate.swift in Sources */,
 			);
