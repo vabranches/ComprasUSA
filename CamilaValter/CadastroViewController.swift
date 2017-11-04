@@ -119,7 +119,7 @@ class CadastroViewController: UIViewController {
             }
             
             produto.nome = tvNomeProduto.text!
-            produto.estado!.nome = tvUF.text!
+            produto.estado = dadosPicker[pickerView.selectedRow(inComponent: 0)]
             
             guard let valor : Double = Double(tvValorUS.text!) else { return }
             
