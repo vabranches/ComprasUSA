@@ -154,8 +154,8 @@ class EstadosViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        cell.textLabel?.text = dataSource[indexPath.row].nome
+        let texto = "\(dataSource[indexPath.row].nome ?? "") (\(dataSource[indexPath.row].imposto) %)"
+        cell.textLabel?.text = texto
         
         
         return cell

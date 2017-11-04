@@ -119,14 +119,15 @@ class CadastroViewController: UIViewController {
             }
             
             produto.nome = tvNomeProduto.text!
+            produto.estado!.nome = tvUF.text!
             
-            //guard let valor : Double = Double(tvValorUS.text!) else { return }
+            guard let valor : Double = Double(tvValorUS.text!) else { return }
             
-            produto.valor = 2000.1
-            produto.cartao = swCartao.isSelected
+            produto.valor = valor
+            produto.cartao = swCartao.isOn
 
             if smallImage != nil {
-              produto.imagem = smallImage
+              produto.imagem = smallImage as NSObject
             }
             
             do {
@@ -134,7 +135,7 @@ class CadastroViewController: UIViewController {
                 
                 print("Nome: ",produto.nome ?? "")
                 print("Cartao: ",produto.cartao)
-                print("Estado: ", produto.estado?.nome ?? "")
+                print("Estado: ", produto.estado!.nome ?? "")
             } catch {}
             
             dismiss(animated: true, completion: nil)

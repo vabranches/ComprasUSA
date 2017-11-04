@@ -64,11 +64,13 @@ class CarrinhoTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celula", for: indexPath) as! CarrinhoTableViewCell
         let prod = fetchedProdutosController.object(at: indexPath)
         cell.lbNomeProduto.text = prod.nome
-        cell.lbValorDolar.text = "\(prod.valor)"
+        cell.lbValorDolar.text = String(format: "U$ %.2f", prod.valor)
         
-        //cell.lbEstadoImposto.text = "+ \(imposto)% )"
+        let texto = "\(prod.estado?.nome ?? "-") (\(prod.estado?.imposto ?? 0.0) %)"
         
-        if prod.cartao == true {
+        cell.lbEstadoImposto.text = texto
+        
+        if prod.cartao {
             cell.lbCartaoIOF.text = "+ 6,38% (IOF)"
         } else {
             cell.lbCartaoIOF.text = "-"
@@ -88,6 +90,18 @@ class CarrinhoTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let state = fetchedProdutosController.object(at: indexPath)
+                context.delete(state)
+            do {
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 
 }
 
@@ -97,5 +111,8 @@ extension CarrinhoTableViewController : NSFetchedResultsControllerDelegate {
         produtos = fetchedProdutosController.fetchedObjects!
         tableView.reloadData()
     }
+    
+    
+    
 }
 
