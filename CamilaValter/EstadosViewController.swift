@@ -67,6 +67,7 @@ class EstadosViewController: UIViewController, UITableViewDataSource, UITableVie
         //TextField de Input
         alerta.addTextField { (textField : UITextField) in
             textField.placeholder = "Nome do Estado"
+            textField.autocapitalizationType = .allCharacters
         }
         alerta.addTextField { (textField : UITextField) in
             textField.placeholder = "Imposto do Estado"
@@ -86,7 +87,7 @@ class EstadosViewController: UIViewController, UITableViewDataSource, UITableVie
             
             let estado = Estados(context: self.context)
             estado.nome = nome
-            estado.imposto = Double(2.1)
+            estado.imposto = Double(imposto)!
             
             do {
                 try self.context.save()
@@ -95,6 +96,8 @@ class EstadosViewController: UIViewController, UITableViewDataSource, UITableVie
         }))
 
         present(alerta, animated: true, completion: nil)
+        
+        self.tableView.reloadData()
         carregarEstados()
         
     }
